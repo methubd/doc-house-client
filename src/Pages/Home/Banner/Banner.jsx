@@ -7,7 +7,7 @@ const Banner = () => {
                 <div>
                     <h1 className="text-6xl font-semibold">Your Best Medical Help Center</h1>
                     <p className="py-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt ratione architecto quam accusamus ullam officia.</p>
-                    <button className="bg-amber-600 px-5 py-2">All Service</button>
+                    <button className="bg-gray-500 px-5 py-2">All Service</button>
                 </div>
 
                 <div>
