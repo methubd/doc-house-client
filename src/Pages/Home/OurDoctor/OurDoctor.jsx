@@ -15,7 +15,7 @@ const OurDoctor = () => {
     }, [])
     
     return (
-        <div className="lg:w-2/3 mx-auto">
+        <div className="lg:w-2/3 mx-auto md:pt-28">
             <SectionHead
             heading="Our Expert Doctors"
             description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."

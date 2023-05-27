@@ -1,3 +1,4 @@
+import { Rating } from '@smastrom/react-rating';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -73,7 +74,13 @@ const DoctorPersonalProfile = ({doctor}) => {
                     <h2>{address}</h2>
                     </TabPanel>
                     <TabPanel>
-                    <h2>{rating}</h2>
+                    <div className='bg-slate-300 w-60 mx-auto text-center rounded-md py-10 px-10 my-10'>
+                        <Rating                        
+                        value={rating}
+                        readOnly
+                        />
+                        <h1 className='pt-5 text-2xl font-bold'>Average: {rating}</h1>
+                    </div>
                     </TabPanel>
                     <TabPanel>
                     <h2></h2>

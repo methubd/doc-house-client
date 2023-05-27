@@ -35,7 +35,7 @@ const DoctorProfile = () => {
                     <p className="flex pt-2 text-sm text-gray-500"> <MapPinIcon className="h-5 w-5 text-gray-500 mr-3" /> {address}</p>
                     
                     {/* photo links */}
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-2 opacity-60">
+                    <div className="grid grid-cols-3 md:grid-cols-6 md:gap-2 opacity-60">
                         <img className="w-[80px] h-[80px] my-5 rounded-lg" src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVkaWNhbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
                         <img className="w-[80px] h-[80px] my-5 rounded-lg" src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVkaWNhbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
                         <img className="w-[80px] h-[80px] my-5 rounded-lg" src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVkaWNhbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />

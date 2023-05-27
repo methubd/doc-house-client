@@ -38,9 +38,8 @@ const Testimonials = () => {
                     review = {review}
                     >                        
                         <div className="">
-                            <div>
+                            <div className="w-48 mx-auto py-5">
                             <Rating
-                                style={{ maxWidth: 100 }}
                                 value={review.rating}
                                 readOnly
                             />
