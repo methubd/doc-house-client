@@ -6,17 +6,19 @@ import { ClockIcon, MapPinIcon, CurrencyDollarIcon, BriefcaseIcon } from '@heroi
 const Doctor = ({doc}) => {
     const {_id, name, address, available_hours, consultation_charge, designation, experience, photo_link, rating} = doc;
     return (
-        <div className="p-5 border">
+        <div className="p-5 border shadow-md">
             <div className="">
             <img className="md:w-[350px] md:h-[260px] rounded-lg" src={photo_link} alt="" />
             </div>
             <h1 className="text-xl font-bold pt-2">{name}</h1>
             <p className="">{designation}</p>
+            
             <Rating
                 style={{ maxWidth: 100 }}
                 value={rating}
                 readOnly
             />
+
             <hr className="py-1 mt-1" />
             <div className="text-sm">
             <p className="flex py-1"> <MapPinIcon className="h-5 w-5 text-gray-500 mr-3" /> {address}</p>

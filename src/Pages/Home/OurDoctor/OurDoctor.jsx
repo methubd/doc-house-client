@@ -13,6 +13,7 @@ const OurDoctor = () => {
         .then(res => res.json())
         .then(data => setDocs(data.slice(0, 3)))
     }, [])
+    
     return (
         <div className="lg:w-2/3 mx-auto">
             <SectionHead
