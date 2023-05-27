@@ -11,8 +11,13 @@ const OurDoctor = () => {
     useEffect(() => {
         fetch('http://localhost:5000/doctors')
         .then(res => res.json())
-        .then(data => setDocs(data.slice(0, 3)))
+        .then(data => {
+            setDocs(data.slice(0, 3))
+        })
     }, [])
+
+    // TODO: SEE MORE BUTTON WORKS
+
     
     return (
         <div className="lg:w-2/3 mx-auto md:pt-28">
@@ -28,6 +33,9 @@ const OurDoctor = () => {
                     doc = {doc}
                     ></Doctor>)
                 }
+            </div>
+            <div className="text-center py-10">
+                <button className="btn btn-outline">See All Doctor</button>
             </div>
 
         </div>
