@@ -4,6 +4,12 @@ import Home from "../Pages/Home/Home/Home";
 import DoctorProfile from "../Pages/Home/OurDoctor/DoctorProfile";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
+import Appointment from "../Pages/Appointment/Appointment";
+import Dashboard from "../Layouts/Dashboard";
+import BookedServices from "../Layouts/Dashboard/BookedServices";
+import Users from "../Layouts/Dashboard/Users";
+import PrivateRoute from "./PrivateRoute";
+
 
 const router = createBrowserRouter([
     {
@@ -26,6 +32,25 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/appointment',
+                element: <Appointment></Appointment>
+            }
+        ]
+    }, 
+    
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>, 
+        children: [
+            {
+                path: 'bookedService',
+                element: <BookedServices></BookedServices>,
+            }, 
+            {
+                path: 'users',
+                element: <Users></Users>
             }
         ]
     }

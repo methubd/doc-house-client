@@ -51,7 +51,7 @@ const DoctorPersonalProfile = ({doctor}) => {
                                     <h1 className='text-2xl font-bold my-5'>Awards</h1>
                                     {
                                         awards.map(award => <li className='text-gray-500' 
-                                            key={award._id
+                                            key={award.index
                                             }>{award}
                                             </li>)
                                     }
