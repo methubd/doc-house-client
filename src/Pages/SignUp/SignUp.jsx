@@ -17,6 +17,8 @@ const SignUp = () => {
         const username = form.username.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(photo);
         const newUser = {name, username, email, role: 'user'}
 
         createUser(email, password)
@@ -63,6 +65,11 @@ const SignUp = () => {
 
                         <label className="font-bold" htmlFor="password">Password</label>
                         <input className="bg-[#F3F3F3] py-6 px-4 w-full rounded-md my-4" type="password" name="password" placeholder="Enter your password" />
+                        
+                        <label className="font-bold" htmlFor="photo">Upload Profile Photo</label>
+                        <p className="text-red-500"><small>300px : 300px</small></p>
+                        <input className="bg-[#F3F3F3] py-6 px-4 w-full rounded-md my-4" type="file" name="photo" />
+                        
                         
                         <input className="bg-[#F7A582] w-full text-white py-5 rounded-lg cursor-pointer hover:bg-yellow-500" type="submit" value="Create Account" />
                     </form>

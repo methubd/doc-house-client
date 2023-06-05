@@ -1,31 +1,38 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
-
+import useBookings from "../../components/useBookings";
 
 const BookedServices = () => {
-    const {user} = useContext(AuthContext)
-    const [appointments, setAppointments] = useState([])
+    // const {user} = useAuth()
+    // const [appointments, setAppointments] = useState([]) 
+    
+    const [appointments, refetch] = useBookings()
+    // console.log(appointments);
 
-    const url = `http://localhost:5000/appointments?email=${user?.email}`
-    useEffect(() => {
-        fetch (url)
-        .then(res => res.json())
-        .then(data => {
-            setAppointments(data);         
-        })
+    // const url = `http://localhost:5000/appointments?email=${user?.email}`
+    // useEffect(() => {
+    //     fetch (url, {
+    //         method: 'GET',
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('access-token')}`
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setAppointments(data);         
+    //     })
 
-    }, [url])
+    // }, [url])
 
     const handleAppointmentDelete = id => {
-        console.log(id);
+        
         const url = `http://localhost:5000/appointments/${id}`
         fetch(url, {
             method: 'DELETE',
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            refetch()
+            // console.log(data);
             if(data.deletedCount > 0){
                 toast.success('Deleted')
             }
