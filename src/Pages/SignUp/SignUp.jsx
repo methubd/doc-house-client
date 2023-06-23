@@ -1,14 +1,31 @@
 import { Link } from "react-router-dom";
 import LoginSignupHead from "../../components/LoginSignupHead";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
+const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser} = useContext(AuthContext);       
+    const [imgURL, setImgURL]  = useState('');
 
-    
+    const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${Image_Upload_Token}`
+
+    const handleImageUpload = e => {
+        const formData = new FormData();
+            formData.append('image', e.target.files[0])
+            
+            fetch(img_hosting_url, {
+                method: 'POST',
+                body: formData
+            })
+
+            .then(res => res.json())
+            .then(imgResponse => {
+                setImgURL(imgResponse.data.display_url)
+            })        
+    }
 
     const handleCreateUser = event => {
         event.preventDefault();
@@ -16,10 +33,10 @@ const SignUp = () => {
         const name = form.name.value;
         const username = form.username.value;
         const email = form.email.value;
-        const password = form.password.value;
-        const photo = form.photo.value;
-        console.log(photo);
-        const newUser = {name, username, email, role: 'user'}
+        const password = form.password.value;        
+
+        const newUser = {name, username, email, role: 'user', imgURL}
+        console.log(newUser);
 
         createUser(email, password)
         .then(result => {
@@ -68,7 +85,7 @@ const SignUp = () => {
                         
                         <label className="font-bold" htmlFor="photo">Upload Profile Photo</label>
                         <p className="text-red-500"><small>300px : 300px</small></p>
-                        <input className="bg-[#F3F3F3] py-6 px-4 w-full rounded-md my-4" type="file" name="photo" />
+                        <input onChange={handleImageUpload} className="bg-[#F3F3F3] py-6 px-4 w-full rounded-md my-4" type="file" name="photo" />
                         
                         
                         <input className="bg-[#F7A582] w-full text-white py-5 rounded-lg cursor-pointer hover:bg-yellow-500" type="submit" value="Create Account" />
